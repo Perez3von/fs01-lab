@@ -1,6 +1,6 @@
 
 
-import { getName, copyAndPush, capitalizeAndFilter } from './utils.js';
+import { getName, copyAndPush, capitalizeAndFilter, fetchQuotes } from './utils.js';
 
 describe('getName', () => {
   it('it returns object name spot', () => {
@@ -27,4 +27,18 @@ describe('getName', () => {
     const name = capitalizeAndFilter(words);
     expect(name).toEqual(['HELLO', 'WORLD']);
   });
+
+  it('it return a single quote with the format from api', async () => {
+
+    const quote = await fetchQuotes();
+    expect(quote).toEqual(
+      {
+        name:expect.any(String),
+        text:expect.any(String),
+        image:expect.any(String)
+      });
+  });
 });
+
+
+
