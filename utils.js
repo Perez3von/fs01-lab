@@ -20,7 +20,6 @@ export const fetchQuotes = async () => {
   const url = ' http://futuramaapi.herokuapp.com/api/quotes';
   const req = await fetch(url);
   const res = await req.json();
-//console.log( { name:res[0].character, text:res[0].quote, image:res[0].image });
   return { name:res[0].character, text:res[0].quote, image:res[0].image };
 
 };
